@@ -1,0 +1,29 @@
+{
+  "name": "bell-tower",
+  "version": "0.0.0",
+  "description": "Portogruaro pending bell tower",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'add tests!'",
+    "build-css": "node-sass --include-path ui ui/main.scss public/css/main.css",
+    "watch-sass": "nodemon -e scss -x \"npm run build-css\"",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acarrara/bell-tower.git"
+  },
+  "author": "Alessandro Carrara",
+  "license": "ISC",
+  "devDependencies": {
+    "commitizen": "^2.8.6",
+    "cz-conventional-changelog": "^1.2.0",
+    "node-sass": "^3.13.0",
+    "nodemon": "^1.11.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

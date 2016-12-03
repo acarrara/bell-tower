@@ -1,0 +1,189 @@
+//$background-color: #993030;
+$ground-color: #aaa;
+$sky-color: #ddd;
+$base-color: #ccc;
+$tower-color: #A36000;
+$tower-top-color: #636000;
+$clock-color: #ccc;
+$decoration-color: #B07200;
+$window-color: #333;
+
+$base-step: 100px;
+$mini-step: $base-step / 8;
+
+$ease-in-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$transition-timing: 500ms;
+
+@mixin rotate($angle) {
+  -webkit-transform: rotate($angle);
+      -ms-transform: rotate($angle);
+          transform: rotate($angle);
+}
+
+@mixin center() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin transition() {
+    -webkit-transition: all $transition-timing $ease-in-back;
+    -ms-transition: all $transition-timing $ease-in-back;
+    transition: all $transition-timing $ease-in-back;
+}
+
+@mixin mullioned($mullion) {
+    -moz-border-top-left-radius: $mullion;
+	-webkit-border-top-left-radius: $mullion;
+	border-top-left-radius: $mullion;
+    -moz-border-top-right-radius: $mullion;
+	-webkit-border-top-right-radius: $mullion;
+	border-top-right-radius: $mullion;
+}
+
+body {
+    margin: 0;
+    background-color: transparent;
+}
+
+.ground {
+    flex-grow: 1;
+    background-color: $ground-color;
+}
+
+.sky {
+    flex-grow: 3;
+    background-color: $sky-color;
+}
+
+.terrain {
+    margin-top: -$mini-step;
+
+    height: $mini-step * 2;
+    width: $base-step * 2;
+    background-color: $ground-color;
+
+    z-index: 200;
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    
+    @include center();
+
+    justify-content: center;
+    background-color: transparent;
+}
+
+.tower {
+    @include center();
+
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+
+    @include rotate(5deg);
+    @include transition();
+
+    &:active { 
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+
+        @include rotate(0deg);
+    }
+}
+
+.tower__body {
+    @include center();
+
+    height: 5 * $base-step;
+    width: $base-step;
+    background-color: $tower-color;
+}
+
+.tower__decorations {
+    width: 100%;
+    height: $base-step * 3.5;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.tower__decoration {
+    margin: $mini-step $mini-step / 2 0 $mini-step / 2;
+    
+    height: 80%;
+    width: $mini-step * 2;
+
+    background-color: $decoration-color;
+
+    @include mullioned($mini-step);
+}
+
+.tower__base {
+    width: $mini-step * 10;
+    height: $mini-step * 2;
+    background-color: $base-color;
+}
+
+.tower__top {
+    width: $mini-step * 6;
+    height: $base-step / 2;
+    background-color: $tower-color;
+}
+
+.tower__steeple {
+    width: 0; 
+    height: 0; 
+    border-left: $mini-step * 3 solid transparent;
+    border-right: $mini-step * 3 solid transparent;
+  
+    border-bottom: 14 * $mini-step solid $tower-top-color;
+}
+
+.tower__clock {
+	width: $base-step / 2;
+	height: $base-step / 2;
+	background-color: $clock-color;
+
+	-moz-border-radius: $base-step / 4;
+	-webkit-border-radius: $base-step / 4;
+	border-radius: $base-step / 4;
+}
+
+.tower__windows {
+    width: 100%;
+    height: $base-step;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.tower__window {
+
+    margin: 0 $mini-step / 4;
+
+    width: $mini-step;
+    height: $base-step / 2;
+
+    background-color: $window-color;
+
+    @include mullioned($mini-step / 2);
+}
