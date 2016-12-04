@@ -2,22 +2,26 @@
 $ground-color: #aaa;
 $sky-color: #ddd;
 $base-color: #ccc;
-$tower-color: #A36000;
-$tower-top-color: #636000;
+$tower-body-color: #A36000;
+$tower-top-color: #634b00;
 $clock-color: #ccc;
 $decoration-color: #B07200;
 $window-color: #333;
 
-$base-step: 100px;
+$base-step: 10vh;
 $mini-step: $base-step / 8;
 
 $ease-in-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $transition-timing: 500ms;
 
 @mixin rotate($angle) {
-  -webkit-transform: rotate($angle);
-      -ms-transform: rotate($angle);
-          transform: rotate($angle);
+    -webkit-transform: rotate($angle);
+    -ms-transform: rotate($angle);
+    transform: rotate($angle);
+    -webkit-transform-origin: bottom;
+    -ms-transform-origin: bottom;
+    transform-origin: bottom;
+          
 }
 
 @mixin center() {
@@ -112,7 +116,7 @@ body {
 
     height: 5 * $base-step;
     width: $base-step;
-    background-color: $tower-color;
+    background-color: $tower-body-color;
 }
 
 .tower__decorations {
@@ -144,7 +148,7 @@ body {
 .tower__top {
     width: $mini-step * 6;
     height: $base-step / 2;
-    background-color: $tower-color;
+    background-color: $tower-body-color;
 }
 
 .tower__steeple {
@@ -167,6 +171,7 @@ body {
 }
 
 .tower__windows {
+    
     width: 100%;
     height: $base-step;
 
@@ -174,6 +179,10 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    &.tower__windows--decorated {
+        border-top: $mini-step solid $clock-color;        
+    }
 }
 
 .tower__window {
@@ -181,7 +190,7 @@ body {
     margin: 0 $mini-step / 4;
 
     width: $mini-step;
-    height: $base-step / 2;
+    height: 50%;
 
     background-color: $window-color;
 
