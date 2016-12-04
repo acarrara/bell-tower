@@ -25,5 +25,9 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "connect": "^3.5.0",
+    "serve-static": "^1.11.1"
   }
 }

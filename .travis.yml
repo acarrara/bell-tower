@@ -1,6 +1,13 @@
 language: node_js
 node_js:
-  - "6"
+- '6'
 before_script:
-  - npm install
-  - npm run build-css
+- npm install
+- npm run build-css
+deploy:
+  provider: heroku
+  api_key:
+    secure: xvtuATgNg/gkwnfMPE0Vy68l2slDPaVpqO+tan+swQHv+2hCaPwnd5AaGdGM9ZGL6V0OmxAdrk+a+ChmXXHeP052CD7CF8juDleMPhnIf/Xncx/5UGqe41lUaBHfULv7qNjmdgEUYM27ByH46bxnloeJttxO+/bH2H+TiCd82ps9mtHY5lOndId9O5LvQk1KSnOlnIeR/fr+snay95Dkc1RHmAF8PjpEbVhvIbfFgr3TpZoXG5DMt/SCuMa5rT2Lkz4ZLfNlcXt6lvhbzIPv/e82yCKhYyH0Z4ZDPqsBWACodRUsIcdUxnB2cNa3TUaTkayF/zvZK8w6vKW/c+WBq8rDLE2ItIg8MgsirZ6VcLfL7BcP0P221xfTWyv6PUNGzMdjR0c3Ew0orz/1kHuJW90tne/Aw6VoW0ls8q1FxZlXlMwoM8VdxfUbuJl0DognqKLmL43FaMwvJ0donpcWAq+0HoNfv/dMp43me6Z60k1ZJYFkF5y18ROazbT2QCI3YGkGipFvrgJBk+Kiq/AS/oOnATTaYpjp3XYVoWFniwffrIQHmV21wX33cNEeGzp1JprhM9xUNpm/HYs0zdYbz0IdVEKj0Uo63oJmUjq81cOc/VcTDTkxZqRWillc1Qk8cFis+/6WtcQXDi3kZvk1FKJleyOT8bO0VE/R74oQXmM=
+  app: bell-tower
+  on:
+    repo: acarrara/bell-tower
