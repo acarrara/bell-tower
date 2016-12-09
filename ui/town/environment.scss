@@ -1,0 +1,49 @@
+
+.ground {
+    flex-grow: 1;
+    background-color: $ground-color;
+}
+
+.sky {
+    flex-grow: 3;
+    background-color: $sky-color;
+}
+
+.terrain {
+    margin-top: -$mini-step;
+
+    height: $mini-step * 2;
+    width: 100vh;
+    background-color: $ground-color;
+
+    z-index: 200;
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.foreground {
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    
+    @include center();
+
+    justify-content: center;
+    background-color: transparent;
+}
+
+.town {
+    @include bottom();
+
+    justify-content: center;
+    background-color: transparent;
+}

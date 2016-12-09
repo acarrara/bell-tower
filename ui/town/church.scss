@@ -1,0 +1,100 @@
+
+.church {
+    margin-left: $base-step / 2;
+        
+    @include center();
+    z-index: 500;
+}
+
+@media only screen 
+  and (max-device-width: 6 * $base-step) {
+    .church {
+        display: none;
+    } 
+}
+
+.church__building {
+    @include bottom();
+}
+
+.church__base {
+    width: $base-step * 4;
+    height: $mini-step;
+    background-image: 
+        repeating-linear-gradient(
+        180deg,
+        $base-color,
+        $base-color 25%,
+        $ground-color 25%,
+        $ground-color 50%
+    );
+}
+
+.church__body {
+    height: 3 * $base-step;
+    width: $base-step * 2;
+
+    background-color: $tower-body-color;
+
+    border-top: $church-border-color solid $mini-step / 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.church__side {
+    height: 2 * $base-step;
+    width: $base-step;
+
+    border-top: $church-border-color solid $mini-step / 2;
+    background-color: $tower-body-color;
+
+    @include bottom();
+
+    &.church__side--left {
+        justify-content: flex-end;
+    }
+
+    &.church__side--right {
+        justify-content: flex-start;
+    }
+}
+
+.church__decorations {
+    padding: $mini-step;
+    
+    height: $base-step;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.church__decoration {
+    height: $mini-step / 2;
+    width: 2 * $mini-step;
+    background-color: $decoration-color;
+    margin: $mini-step / 2 $mini-step;
+}
+
+.church__door {
+
+    background-color: $window-color;
+
+    border-top: $base-color solid $mini-step / 4;
+    border-left: $base-color solid $mini-step / 2;
+    border-right: $base-color solid $mini-step / 2;
+
+    &.church__door--center {
+        height: $base-step;
+        width: $mini-step * 3;
+    }
+
+    &.church__door--side {
+        height: $base-step * 2/3;
+        width: $mini-step * 2;
+    }
+}
