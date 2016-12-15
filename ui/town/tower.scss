@@ -1,5 +1,3 @@
-
-
 .tower {
     @include center();
 
@@ -23,7 +21,7 @@
 .tower__body {
     @include center();
 
-    height: 6 * $base-step;
+    height: $base-step * 6;
     width: $base-step;
     background-color: $tower-body-color;
 }
@@ -51,7 +49,7 @@
 .tower__base {
     width: $mini-step * 10;
     height: $mini-step * 2;
-    background-color: $base-color;
+    background-color: $tower-base-color;
 }
 
 .tower__top {
@@ -66,7 +64,7 @@
     border-left: $mini-step * 3 solid transparent;
     border-right: $mini-step * 3 solid transparent;
   
-    border-bottom: 14 * $mini-step solid $tower-top-color;
+    border-bottom: $mini-step * 14 solid $tower-top-color;
 }
 
 .tower__clock {

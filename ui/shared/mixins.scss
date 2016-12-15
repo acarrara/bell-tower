@@ -1,0 +1,73 @@
+@-webkit-keyframes slide {
+    0% { background-position: 100% 0; }
+    100% { background-position: 0% 0; }
+}
+@-moz-keyframes slide {
+    0% { background-position: 100% 0; }
+    100% { background-position: 0% 0; }
+}
+@keyframes slide {
+    0% { background-position: 100% 0; }
+    100% { background-position: 0% 0; }
+}
+
+@mixin slide() {
+    -webkit-animation: slide 30s infinite linear forwards;
+    -moz-animation: slide 30s infinite linear forwards;
+    animation: slide 30s infinite linear forwards;
+}
+
+@mixin shadow($depth) {
+  -moz-box-shadow:    0 0 $depth $shadow-color;
+  -webkit-box-shadow: 0 0 $depth $shadow-color;
+  box-shadow:         0 0 $depth $shadow-color;
+}
+
+@mixin fullscreen() {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+@mixin rotate($angle) {
+    -webkit-transform: rotate($angle);
+    -ms-transform: rotate($angle);
+    transform: rotate($angle);
+    -webkit-transform-origin: bottom;
+    -ms-transform-origin: bottom;
+    transform-origin: bottom;
+          
+}
+
+@mixin center() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin bottom() {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+@mixin transition() {
+    -webkit-transition: all $transition-timing $ease-in-back;
+    -ms-transition: all $transition-timing $ease-in-back;
+    transition: all $transition-timing $ease-in-back;
+}
+
+@mixin mullioned($mullion) {
+    -moz-border-top-left-radius: $mullion;
+	-webkit-border-top-left-radius: $mullion;
+	border-top-left-radius: $mullion;
+    -moz-border-top-right-radius: $mullion;
+	-webkit-border-top-right-radius: $mullion;
+	border-top-right-radius: $mullion;
+}
+
+@mixin corners($corner) {
+    -moz-border-radius: $corner;
+	-webkit-border-radius: $corner;
+	border-radius: $corner;
+}

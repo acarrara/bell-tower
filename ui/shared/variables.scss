@@ -1,0 +1,36 @@
+$ground-color: #aaa;
+$sky-color: #f4f4f0;
+
+$river-wave-color: #b7d8e5;
+$river-color: #9fc7d6;
+
+$tower-base-color: #ccc;
+$tower-body-color: #A36000;
+$tower-top-color: #634b00;
+$clock-color: #ccc;
+$decoration-color: #B07200;
+$window-color: #333;
+
+$button-color: #aaa;
+$button-hover-color: #bbb;
+$button-text-color: #eee;
+$button-text-hover-color: #fefefe;
+
+$opaque: 0.6;
+$opaque-background: 0.4;
+
+$index-bottom: 100;
+$index-over-bottom: 200;
+$index-top: 9999;
+$index-under-top: 9990;
+
+$modal-color: #eee;
+$text-color: #222;
+$shadow-color: #bbb;
+$shadow-depth: 8px;
+
+$base-step: 10vh;
+$mini-step: $base-step / 8;
+
+$ease-in-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$transition-timing: 500ms;

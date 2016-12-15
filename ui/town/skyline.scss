@@ -1,0 +1,84 @@
+.skyline {
+    @include bottom();
+    justify-content: center;
+
+    flex-grow: 3;
+    background-color: $sky-color;
+}
+
+.skyline__building {
+    display: flex;
+    flex-direction: column;
+
+    opacity: $opaque-background;
+
+    border-top: $church-border-color solid $mini-step / 2;
+}
+
+.skyline__top {
+    flex-grow: 1;
+    @include bottom();
+    align-items: center;
+}
+
+.skyline__bottom {
+    flex-grow: 1;
+    @include bottom();
+    justify-content: space-around;
+}
+
+.skyline__window {
+    margin-left: $mini-step * 3 / 2;
+    margin-right: $mini-step * 3 / 2;
+    width: $mini-step;
+    height: $mini-step * 2;
+
+    background-color: $window-color;
+
+    @include mullioned($mini-step / 2);
+}
+
+.skyline__building--short {
+    height: $base-step;
+}
+
+.skyline__building--tall {
+    height: $base-step * 3 / 2;
+}
+
+.skyline__building--normal {
+    width: $base-step * 2;
+}
+
+.skyline__building--large {
+    width: $base-step * 3;
+}
+
+.skyline__building--narrow {
+    width: $base-step * 3 / 2;
+}
+
+.skyline__door {
+    width: $mini-step * 3;
+    height: $mini-step * 3;
+
+    background-color: $window-color;
+
+    @include mullioned($mini-step * 3 / 2);
+}
+
+.h-color-grey {
+    background-color: lightgrey;
+}
+
+.h-color-salmon {
+    background-color: lightsalmon;
+}
+
+.h-color-yellow {
+    background-color: lightyellow;
+}
+
+.h-color-pink {
+    background-color: lightpink;
+}

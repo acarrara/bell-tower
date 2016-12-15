@@ -1,12 +1,28 @@
-
 .ground {
-    flex-grow: 1;
+    flex-grow: 3;
     background-color: $ground-color;
 }
 
 .sky {
-    flex-grow: 3;
+    flex-grow: 6;
     background-color: $sky-color;
+}
+
+.river {
+    flex-grow: 2;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            $river-color,
+            $river-color      49vw,
+            $river-wave-color 49vw,
+            $river-wave-color 50vw);
+    background-size: 50vw;
+
+    @include slide();
+
+    border-bottom: $mini-step solid $tower-base-color;
+    border-top: $mini-step solid $tower-base-color;
 }
 
 .terrain {
@@ -16,29 +32,30 @@
     width: 100vh;
     background-color: $ground-color;
 
-    z-index: 200;
+    z-index: $index-over-bottom;
 }
 
 .background {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
+    @include fullscreen();
     
     display: flex;
     flex-direction: column;
-    
 }
 
 .foreground {
-    position: fixed;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
+    @include fullscreen();
+
+    z-index: $index-bottom;
     
     @include center();
 
     justify-content: center;
     background-color: transparent;
+}
+
+.foreground__about {
+    align-self: flex-end;
+    margin-right: $mini-step * 2;
 }
 
 .town {
