@@ -17,10 +17,8 @@ const config = {
   database: params.pathname.split('/')[1],
   ssl: true
 };
-
-console.log(config); 
  
-var pool = new Pool();
+var pool = new Pool(config);
 
 var total = 0;
 
