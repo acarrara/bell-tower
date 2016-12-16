@@ -160,6 +160,21 @@
             </div>
         </div>
         <div class="terrain"></div>
+        <span><span class="total">0</span> visitors straightened the tower. Hooray!</span>
     </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        document.querySelector('.tower').addEventListener('click',
+            function() {
+                socket.emit('inc');
+            },
+            true
+        );
+        socket.on('total', function(total){
+            document.querySelector('.total').innerHTML = total;
+        });
+    </script>
 </body>
 </html>
