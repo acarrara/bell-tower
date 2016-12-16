@@ -3,14 +3,23 @@ var app = express();
 var path = require('path');
 var port = process.env.PORT || 8080;
 
-var pg = require('pg');
-pg.defaults.ssl = true;
+var Pool = require('pg').Pool;
+const url = require('url');
 
-var Pool = pg.Pool;
-var pool = new Pool(config);
-var config = {
-  database: process.env.DATABASE_URL
+const params = url.parse(process.env.DATABASE_URL);
+const auth = params.auth.split(':');
+
+const config = {
+  user: auth[0],
+  password: auth[1],
+  host: params.hostname,
+  port: params.port,
+  database: params.pathname.split('/')[1],
+  ssl: true
 };
+
+var pool = new Pool();
+
 var total = 0;
 
 var http = require('http').Server(app);
