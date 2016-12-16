@@ -3,7 +3,7 @@ var app = express();
 var path = require('path');
 var port = process.env.PORT || 8080;
 
-var Pool = require('pg').Pool;
+var Pool = require('pg-pool');
 const url = require('url');
 
 const params = url.parse(process.env.DATABASE_URL);
@@ -18,6 +18,8 @@ const config = {
   ssl: true
 };
 
+console.log(config); 
+ 
 var pool = new Pool();
 
 var total = 0;
